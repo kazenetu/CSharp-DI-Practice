@@ -1,3 +1,4 @@
+using Logic.Interfaces.Applictions;
 using Logic.Interfaces.Repositories;
 
 namespace Logic.Applictions;

@@ -1,4 +1,4 @@
-namespace Logic.Applictions;
+namespace Logic.Interfaces.Applictions;
 
 /// <summary>
 /// サンプルアプリケーション：インターフェイス
