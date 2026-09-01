@@ -14,7 +14,17 @@ public class FileRepository : IFileRepository
     /// <returns>ファイルデータリスト</returns>
     public List<string> ReadFile(string fileName)
     {
-        // ダミーデータを返す
-        return ["A", "B", "C"];
+        // ファイルパス生成
+        var filePath = $"{AppDomain.CurrentDomain.BaseDirectory}/Resources/{fileName}";
+
+        // ファイルパスが存在しない場合、リストゼロを返す
+        if (!File.Exists(filePath))
+            return [];
+
+        // テキストファイル読み込み
+        var fileText = File.ReadAllText(filePath);
+
+        // 改行単位でリストを返す
+        return [..fileText.Split(Environment.NewLine)];
     }
 }
