@@ -7,22 +7,30 @@ using Logic.Interfaces.Applictions;
 
 namespace ConsoleApp;
 
+/// <summary>
+/// エントリポイント
+/// </summary>
 class Program
 {
+    /// <summary>
+    /// メインメソッド
+    /// </summary>
+    /// <param name="args">コマンドライン引数</param>
     static void Main(string[] args)
     {
         var host = Host.CreateDefaultBuilder(args)
             .ConfigureServices((Context, sevice) =>
             {
-                // DI設定
+                // ロジック部のDI登録
                 sevice.AddTransient<IFileRepository, FileRepository>();
                 sevice.AddTransient<ISampleApplication, SampleApplication>();
 
-                // 実行クラス
-                sevice.AddSingleton<App>();
+                // 実行クラス登録
+                sevice.AddTransient<App>();
             })
             .Build();
 
+        // 実行クラスのインスタンス生成・実行
         var app = host.Services.GetRequiredService<App>();
         app.Run();
     }
