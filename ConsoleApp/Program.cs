@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Logic.Extensions;
 using Logic.Repositories;
 using Logic.Interfaces.Repositories;
 using Logic.Applictions;
@@ -21,6 +22,8 @@ class Program
         var host = Host.CreateDefaultBuilder(args)
             .ConfigureServices((Context, sevice) =>
             {
+                sevice.AddLogicDI();
+
                 // ロジック部のDI登録
                 sevice.AddTransient<IFileRepository, FileRepository>();
                 sevice.AddTransient<ISampleApplication, SampleApplication>();
