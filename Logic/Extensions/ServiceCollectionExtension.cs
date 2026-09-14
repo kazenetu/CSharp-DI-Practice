@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Logic.Applictions;
+using Logic.Interfaces.Repositories;
+using Logic.Interfaces.Applictions;
+using Logic.Repositories;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Logic.Extensions;
 
@@ -14,6 +18,9 @@ public static class ServiceCollectionExtension
    /// <returns>IServiceCollectionインスタンsy</returns>
    public static IServiceCollection AddLogicDI(this IServiceCollection service)
    {
+      service.AddTransient<IFileRepository, FileRepository>();
+      service.AddTransient<ISampleApplication, SampleApplication>();
+
       return service;
    }
 }

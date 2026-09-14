@@ -1,10 +1,6 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Logic.Extensions;
-using Logic.Repositories;
-using Logic.Interfaces.Repositories;
-using Logic.Applictions;
-using Logic.Interfaces.Applictions;
 
 namespace ConsoleApp;
 
@@ -22,11 +18,8 @@ class Program
         var host = Host.CreateDefaultBuilder(args)
             .ConfigureServices((Context, sevice) =>
             {
-                sevice.AddLogicDI();
-
                 // ロジック部のDI登録
-                sevice.AddTransient<IFileRepository, FileRepository>();
-                sevice.AddTransient<ISampleApplication, SampleApplication>();
+                sevice.AddLogicDI();
 
                 // 実行クラス登録
                 sevice.AddTransient<App>();
