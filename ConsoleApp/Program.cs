@@ -16,13 +16,13 @@ class Program
     static void Main(string[] args)
     {
         var host = Host.CreateDefaultBuilder(args)
-            .ConfigureServices((Context, sevice) =>
+            .ConfigureServices((Context, service) =>
             {
                 // ロジック部のDI登録
-                sevice.AddLogicDI();
+                service.AddLogicDI();
 
                 // 実行クラス登録
-                sevice.AddTransient<App>();
+                service.AddTransient<App>();
             })
             .Build();
 
