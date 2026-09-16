@@ -18,11 +18,8 @@ class Program
         var host = Host.CreateDefaultBuilder(args)
             .ConfigureServices((Context, service) =>
             {
-                // ロジック部のDI登録
-                service.AddLogicDI();
-
-                // 実行クラス登録
-                service.AddTransient<App>();
+                // ロジック部のDI登録と実行クラス登録
+                service.AddLogicDI().AddTransient<App>();
             })
             .Build();
 
