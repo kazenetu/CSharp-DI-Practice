@@ -5,7 +5,7 @@ namespace Logic.Repositories;
 /// <summary>
 /// ファイルリポジトリ
 /// </summary>
-public class FileRepository : IFileRepository
+internal class FileRepository : IFileRepository
 {
     /// <summary>
     /// ファイル読み込み
