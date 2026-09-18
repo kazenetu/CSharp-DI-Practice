@@ -3,7 +3,7 @@ namespace Logic.Interfaces.Repositories;
 /// <summary>
 /// ファイルリポジトリ：インターフェイス
 /// </summary>
-public interface IFileRepository
+internal interface IFileRepository
 {
     /// <summary>
     /// ファイル読み込み
