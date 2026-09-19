@@ -6,7 +6,7 @@ namespace Logic.Applictions;
 /// <summary>
 /// サンプルアプリケーション：インターフェイス
 /// </summary>
-public class SampleApplication: ISampleApplication
+internal class SampleApplication: ISampleApplication
 {
     /// <summary>
     /// ファイルリポジトリ
