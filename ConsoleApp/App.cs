@@ -1,4 +1,4 @@
-using Logic.Interfaces.Applictions;
+using Logic.Interfaces.Applications;
 
 namespace ConsoleApp;
 
