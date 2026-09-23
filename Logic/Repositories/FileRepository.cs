@@ -25,6 +25,6 @@ internal class FileRepository : IFileRepository
         var fileText = File.ReadAllText(filePath);
 
         // 改行単位でリストを返す
-        return [..fileText.Split(Environment.NewLine)];
+        return [.. fileText.Split(Environment.NewLine)];
     }
 }
