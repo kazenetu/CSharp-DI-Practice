@@ -1,6 +1,6 @@
 ﻿using Logic.Applications;
-using Logic.Interfaces.Repositories;
 using Logic.Interfaces.Applications;
+using Logic.Interfaces.Repositories;
 using Logic.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
