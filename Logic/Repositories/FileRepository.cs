@@ -5,7 +5,7 @@ namespace Logic.Repositories;
 /// <summary>
 /// ファイルリポジトリ
 /// </summary>
-public class FileRepository : IFileRepository
+internal class FileRepository : IFileRepository
 {
     /// <summary>
     /// ファイル読み込み
@@ -25,6 +25,6 @@ public class FileRepository : IFileRepository
         var fileText = File.ReadAllText(filePath);
 
         // 改行単位でリストを返す
-        return [..fileText.Split(Environment.NewLine)];
+        return [.. fileText.Split(Environment.NewLine)];
     }
 }

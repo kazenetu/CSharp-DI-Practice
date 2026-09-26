@@ -1,12 +1,12 @@
-using Logic.Interfaces.Applictions;
+using Logic.Interfaces.Applications;
 using Logic.Interfaces.Repositories;
 
-namespace Logic.Applictions;
+namespace Logic.Applications;
 
 /// <summary>
 /// サンプルアプリケーション：インターフェイス
 /// </summary>
-public class SampleApplication: ISampleApplication
+internal class SampleApplication : ISampleApplication
 {
     /// <summary>
     /// ファイルリポジトリ
