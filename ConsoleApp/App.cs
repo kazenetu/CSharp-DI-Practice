@@ -12,7 +12,10 @@ class App(ISampleApplication application)
     /// </summary>
     public void Run()
     {
+        // テキストファイル
+        Console.WriteLine("---TextFile---");
         var textList = application.GetData("dummy.txt");
         Console.WriteLine(string.Join(Environment.NewLine, textList));
+        Console.WriteLine();
     }
 }
