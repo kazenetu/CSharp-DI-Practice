@@ -31,5 +31,5 @@ internal class FileRepository : IFileRepository
 
         // 改行単位でリストを返す
         return targetRepository.ReadFile(filePath);
-}
+    }
 }
