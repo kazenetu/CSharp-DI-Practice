@@ -23,9 +23,10 @@ internal class FileRepository : IFileRepository
 
         // 拡張子取得
         var fileExt = Path.GetExtension(fileName);
-        var targetRepository = fileExt.ToLower() switch
+        IFileRepository targetRepository = fileExt.ToLower() switch
         {
             ".txt" => new TextFileRepository(),
+            ".json" => new JsonFileRepository(),
             _ => throw new Exception($"拡張子[{fileExt}]に紐づく処理が見つかりません。")
         };
 
