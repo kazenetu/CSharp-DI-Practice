@@ -17,5 +17,11 @@ class App(ISampleApplication application)
         var textList = application.GetData("dummy.txt");
         Console.WriteLine(string.Join(Environment.NewLine, textList));
         Console.WriteLine();
+
+        // JSONファイル
+        Console.WriteLine("---JSONFile---");
+        var jsonList = application.GetData("dummy.json");
+        Console.WriteLine(string.Join(Environment.NewLine, jsonList));
+        Console.WriteLine();
     }
 }
