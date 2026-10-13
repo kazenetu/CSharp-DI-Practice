@@ -28,6 +28,7 @@ internal class FileRepository : IFileRepository
             ".txt" => new TextFileRepository(),
             ".json" => new JsonFileRepository(),
             ".xml" => new XmlFileRepository(),
+            ".csv" => new CsvFileRepository(),
             _ => throw new Exception($"拡張子[{fileExt}]に紐づく処理が見つかりません。")
         };
 
