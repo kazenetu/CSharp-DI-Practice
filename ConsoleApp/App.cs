@@ -29,5 +29,11 @@ class App(ISampleApplication application)
         var xmlList = application.GetData("dummy.xml");
         Console.WriteLine(string.Join(Environment.NewLine, xmlList));
         Console.WriteLine();
+
+       // CSVファイル
+        Console.WriteLine("---CSVFile---");
+        var csvlList = application.GetData("dummy.csv");
+        Console.WriteLine(string.Join(Environment.NewLine, csvlList));
+        Console.WriteLine();
     }
 }
