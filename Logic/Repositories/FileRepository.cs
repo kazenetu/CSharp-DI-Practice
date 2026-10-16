@@ -21,10 +21,18 @@ internal class FileRepository : IFileRepository
         if (!File.Exists(filePath))
             return [];
 
-        // テキストファイル読み込み
-        var fileText = File.ReadAllText(filePath);
+        // 拡張子取得
+        var fileExt = Path.GetExtension(fileName);
+        IFileRepository targetRepository = fileExt.ToLower() switch
+        {
+            ".txt" => new TextFileRepository(),
+            ".json" => new JsonFileRepository(),
+            ".xml" => new XmlFileRepository(),
+            ".csv" => new CsvFileRepository(),
+            _ => throw new Exception($"拡張子[{fileExt}]に紐づく処理が見つかりません。")
+        };
 
         // 改行単位でリストを返す
-        return [.. fileText.Split(Environment.NewLine)];
+        return targetRepository.ReadFile(filePath);
     }
 }
