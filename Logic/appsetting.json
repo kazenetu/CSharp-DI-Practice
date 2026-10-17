@@ -1,0 +1,10 @@
+{
+  "Logging":{
+    "Default":"Information",
+    "Microsoft":"Warning",
+    "Microsoft.Hosting.Liftime":"Information"
+  },
+  "Console":{
+    "LogLevel":"Debug"
+  }
+}
