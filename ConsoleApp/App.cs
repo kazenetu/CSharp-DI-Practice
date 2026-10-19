@@ -1,11 +1,12 @@
 using Logic.Interfaces.Applications;
+using Microsoft.Extensions.Logging;
 
 namespace ConsoleApp;
 
 /// <summary>
 /// 実行クラス
 /// </summary>
-class App(ISampleApplication application)
+class App(ILogger<App> logger, ISampleApplication application)
 {
     /// <summary>
     /// 実行
