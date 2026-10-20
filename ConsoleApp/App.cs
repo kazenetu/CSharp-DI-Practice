@@ -14,27 +14,27 @@ class App(ILogger<App> logger, ISampleApplication application)
     public void Run()
     {
         // テキストファイル
-        Console.WriteLine("---TextFile---");
+        logger.LogInformation("---TextFile---");
         var textList = application.GetData("dummy.txt");
-        Console.WriteLine(string.Join(Environment.NewLine, textList));
-        Console.WriteLine();
+        var textResult = string.Join(Environment.NewLine, textList);
+        logger.LogInformation(textResult);
 
         // JSONファイル
-        Console.WriteLine("---JSONFile---");
+        logger.LogInformation("---JSONFile---");
         var jsonList = application.GetData("dummy.json");
-        Console.WriteLine(string.Join(Environment.NewLine, jsonList));
-        Console.WriteLine();
+        var jsonResult = string.Join(Environment.NewLine, jsonList);
+        logger.LogInformation(jsonResult);
 
         // XMLファイル
-        Console.WriteLine("---XMLFile---");
+        logger.LogInformation("---XMLFile---");
         var xmlList = application.GetData("dummy.xml");
-        Console.WriteLine(string.Join(Environment.NewLine, xmlList));
-        Console.WriteLine();
+        var xmlResult = string.Join(Environment.NewLine, xmlList);
+        logger.LogInformation(xmlResult);
 
-       // CSVファイル
-        Console.WriteLine("---CSVFile---");
+        // CSVファイル
+        logger.LogInformation("---CSVFile---");
         var csvlList = application.GetData("dummy.csv");
-        Console.WriteLine(string.Join(Environment.NewLine, csvlList));
-        Console.WriteLine();
+        var csvResult = string.Join(Environment.NewLine, csvlList);
+        logger.LogInformation(csvResult);
     }
 }
