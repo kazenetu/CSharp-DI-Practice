@@ -6,6 +6,8 @@ namespace ConsoleApp;
 /// <summary>
 /// 実行クラス
 /// </summary>
+/// <param name="logger">ログ</param>
+/// <param name="application">ファイル取得アプリケーション</param>
 class App(ILogger<App> logger, ISampleApplication application)
 {
     /// <summary>
