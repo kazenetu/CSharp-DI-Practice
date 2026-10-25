@@ -16,6 +16,7 @@ class Program
     static void Main(string[] args)
     {
         var host = Host.CreateDefaultBuilder(args)
+            .UseContentRoot(AppContext.BaseDirectory)
             .ConfigureServices((Context, service) =>
             {
                 // ロジック部のDI登録と実行クラス登録
