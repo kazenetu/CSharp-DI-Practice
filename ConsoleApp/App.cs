@@ -1,3 +1,4 @@
+using System.Text;
 using Logic.Interfaces.Applications;
 using Microsoft.Extensions.Logging;
 
@@ -15,28 +16,33 @@ class App(ILogger<App> logger, ISampleApplication application)
     /// </summary>
     public void Run()
     {
+        var sb = new StringBuilder();
+
         // テキストファイル
-        logger.LogInformation("---TextFile---");
+        sb.AppendLine("---TextFile---");
         var textList = application.GetData("dummy.txt");
-        var textResult = string.Join(Environment.NewLine, textList);
-        logger.LogInformation(textResult);
+        sb.AppendLine(string.Join(Environment.NewLine, textList));
+        logger.LogInformation(sb.ToString());
 
         // JSONファイル
-        logger.LogInformation("---JSONFile---");
+        sb.Clear();
+        sb.AppendLine("---JSONFile---");
         var jsonList = application.GetData("dummy.json");
-        var jsonResult = string.Join(Environment.NewLine, jsonList);
-        logger.LogInformation(jsonResult);
+        sb.AppendLine(string.Join(Environment.NewLine, jsonList));
+        logger.LogInformation(sb.ToString());
 
         // XMLファイル
-        logger.LogInformation("---XMLFile---");
+        sb.Clear();
+        sb.AppendLine("---XMLFile---");
         var xmlList = application.GetData("dummy.xml");
-        var xmlResult = string.Join(Environment.NewLine, xmlList);
-        logger.LogInformation(xmlResult);
+        sb.AppendLine(string.Join(Environment.NewLine, xmlList));
+        logger.LogInformation(sb.ToString());
 
         // CSVファイル
-        logger.LogInformation("---CSVFile---");
+        sb.Clear();
+        sb.AppendLine("---CSVFile---");
         var csvlList = application.GetData("dummy.csv");
-        var csvResult = string.Join(Environment.NewLine, csvlList);
-        logger.LogInformation(csvResult);
+        sb.AppendLine(string.Join(Environment.NewLine, csvlList));
+        logger.LogInformation(sb.ToString());
     }
 }
