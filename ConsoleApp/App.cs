@@ -1,39 +1,48 @@
+using System.Text;
 using Logic.Interfaces.Applications;
+using Microsoft.Extensions.Logging;
 
 namespace ConsoleApp;
 
 /// <summary>
 /// 実行クラス
 /// </summary>
-class App(ISampleApplication application)
+/// <param name="logger">ログ</param>
+/// <param name="application">ファイル取得アプリケーション</param>
+class App(ILogger<App> logger, ISampleApplication application)
 {
     /// <summary>
     /// 実行
     /// </summary>
     public void Run()
     {
+        var sb = new StringBuilder();
+
         // テキストファイル
-        Console.WriteLine("---TextFile---");
+        sb.AppendLine("---TextFile---");
         var textList = application.GetData("dummy.txt");
-        Console.WriteLine(string.Join(Environment.NewLine, textList));
-        Console.WriteLine();
+        sb.AppendLine(string.Join(Environment.NewLine, textList));
+        logger.LogInformation(sb.ToString());
 
         // JSONファイル
-        Console.WriteLine("---JSONFile---");
+        sb.Clear();
+        sb.AppendLine("---JSONFile---");
         var jsonList = application.GetData("dummy.json");
-        Console.WriteLine(string.Join(Environment.NewLine, jsonList));
-        Console.WriteLine();
+        sb.AppendLine(string.Join(Environment.NewLine, jsonList));
+        logger.LogInformation(sb.ToString());
 
         // XMLファイル
-        Console.WriteLine("---XMLFile---");
+        sb.Clear();
+        sb.AppendLine("---XMLFile---");
         var xmlList = application.GetData("dummy.xml");
-        Console.WriteLine(string.Join(Environment.NewLine, xmlList));
-        Console.WriteLine();
+        sb.AppendLine(string.Join(Environment.NewLine, xmlList));
+        logger.LogInformation(sb.ToString());
 
-       // CSVファイル
-        Console.WriteLine("---CSVFile---");
+        // CSVファイル
+        sb.Clear();
+        sb.AppendLine("---CSVFile---");
         var csvlList = application.GetData("dummy.csv");
-        Console.WriteLine(string.Join(Environment.NewLine, csvlList));
-        Console.WriteLine();
+        sb.AppendLine(string.Join(Environment.NewLine, csvlList));
+        logger.LogInformation(sb.ToString());
     }
 }
