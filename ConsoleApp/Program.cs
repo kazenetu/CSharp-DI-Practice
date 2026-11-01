@@ -15,14 +15,14 @@ class Program
     /// <param name="args">コマンドライン引数</param>
     static void Main(string[] args)
     {
-        var host = Host.CreateDefaultBuilder(args)
-            .UseContentRoot(AppContext.BaseDirectory)
-            .ConfigureServices((Context, service) =>
-            {
-                // ロジック部のDI登録と実行クラス登録
-                service.AddLogicDI().AddTransient<App>();
-            })
-            .Build();
+        var builder = Host.CreateApplicationBuilder(args);
+        builder.Environment.ContentRootPath = AppContext.BaseDirectory;
+
+        // ロジック部のDI登録と実行クラス登録
+        builder.Services.AddLogicDI().AddTransient<App>();
+
+        //IHost取得
+        var host = builder.Build();
 
         // 実行クラスのインスタンス生成・実行
         var app = host.Services.GetRequiredService<App>();
