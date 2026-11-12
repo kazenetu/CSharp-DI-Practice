@@ -18,6 +18,9 @@ class Program
         var builder = Host.CreateApplicationBuilder(args);
         builder.Environment.ContentRootPath = AppContext.BaseDirectory;
 
+        // ログ設定
+        builder.Logging.AddFileLoader();
+
         // ロジック部のDI登録と実行クラス登録
         builder.Services.AddLogicDI().AddTransient<App>();
 
