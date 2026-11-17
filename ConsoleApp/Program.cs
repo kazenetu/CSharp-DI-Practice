@@ -1,7 +1,8 @@
 using Logic.Extensions;
+using Logic.Logging;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
 namespace ConsoleApp;
 
 /// <summary>
@@ -15,8 +16,13 @@ class Program
     /// <param name="args">コマンドライン引数</param>
     static void Main(string[] args)
     {
-        var builder = Host.CreateApplicationBuilder(args);
-        builder.Environment.ContentRootPath = AppContext.BaseDirectory;
+        var setting = new HostApplicationBuilderSettings
+        {
+            ContentRootPath = AppContext.BaseDirectory,
+            Args = args
+        };
+
+        var builder = Host.CreateApplicationBuilder(setting);
 
         // ログ設定
         builder.Logging.AddFileLoader();
