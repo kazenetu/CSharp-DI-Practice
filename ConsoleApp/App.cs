@@ -22,7 +22,7 @@ class App(ILogger<App> logger, ISampleApplication application)
         sb.AppendLine("---TextFile---");
         var textList = application.GetData("dummy.txt");
         sb.AppendLine(string.Join(Environment.NewLine, textList));
-        logger.LogInformation(sb.ToString());
+        logger.LogDebug(sb.ToString());
 
         // JSONファイル
         sb.Clear();
