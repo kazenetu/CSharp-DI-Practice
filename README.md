@@ -39,3 +39,33 @@ dotnet run --project ConsoleApp/ConsoleApp.csproj
         5:行飛ばし
   ```
 
+* テキストログ(格納場所：ConsoleApp/bin/Debug/net8.0/logs)  
+  ```log
+    20261121 00:00:00.123 [DBG] ConsoleApp.App ---TextFile---
+    １行目：あいうえお
+    ２行目：かきくけこ
+    ３行目：さしすせそ
+
+    ５行目：行飛ばし
+
+    20261121 00:00:00.123 [INF] ConsoleApp.App ---JSONFile---
+    1:あいうえお
+    2:かきくけこ
+    3:さしすせそ
+    4:
+    5:行飛ばし
+
+    20261121 00:00:00.123 [INF] ConsoleApp.App ---XMLFile---
+    １行目：あいうえお
+    ２行目：かきくけこ
+    ３行目：さしすせそ
+
+    ５行目：行飛ばし
+
+    20261121 00:00:00.123 [INF] ConsoleApp.App ---CSVFile---
+    1:あいうえお
+    2:かきくけこ
+    3:さしすせそ
+    4:
+    5:行飛ばし
+  ```
